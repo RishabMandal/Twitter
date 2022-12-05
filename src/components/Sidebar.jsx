@@ -3,15 +3,18 @@ import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function Sidebar() {
   return (
-    <div className="flex flex-col w-1/4 max-w-[300px] h-full py-3 px-7 bg-black text-white">
+    <div className="hidden min-h-screen sticky top-0 sm:flex md:flex lg:flex xl:flex 2xl:flex flex-col lg:w-1/4 xl:w-1/4 2xl:w-1/4 max-w-[300px] h-full py-3 px-7 bg-black text-white">
       <div>
         <img
           src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/twitter-icon-18-256.png"
           alt=""
-          className="ml-3 mb-2 h-6 w-6"
+          className="ml-3 mb-2 h-6 w-6 cursor-pointer"
         />
       </div>
-      <Link to='/' className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer">
+      <Link
+        to="/"
+        className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -26,9 +29,14 @@ export default function Sidebar() {
             d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
           />
         </svg>
-        <h1 className="text-md font-bold">Home</h1>
+        <h1 className="hidden md:block lg:block xl:block 2xl:block text-md font-bold">
+          Home
+        </h1>
       </Link>
-      <Link to='/explore' className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer">
+      <Link
+        to="/explore"
+        className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -43,7 +51,9 @@ export default function Sidebar() {
             d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5"
           />
         </svg>
-        <h1 className="text-md font-bold">Explore</h1>
+        <h1 className="hidden md:block lg:block xl:block 2xl:block text-md font-bold">
+          Explore
+        </h1>
       </Link>
       <Link className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer">
         <svg
@@ -60,7 +70,9 @@ export default function Sidebar() {
             d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
           />
         </svg>
-        <h1 className="text-md font-bold">Notifications</h1>
+        <h1 className="hidden md:block lg:block xl:block 2xl:block text-md font-bold">
+          Notifications
+        </h1>
       </Link>
       <Link className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer">
         <svg
@@ -77,7 +89,9 @@ export default function Sidebar() {
             d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
           />
         </svg>
-        <h1 className="text-md font-bold">Messages</h1>
+        <h1 className="hidden md:block lg:block xl:block 2xl:block text-md font-bold">
+          Messages
+        </h1>
       </Link>
       <Link className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer">
         <svg
@@ -95,7 +109,9 @@ export default function Sidebar() {
           />
         </svg>
 
-        <h1 className="text-md font-bold">Bookmarks</h1>
+        <h1 className="hidden md:block lg:block xl:block 2xl:block text-md font-bold">
+          Bookmarks
+        </h1>
       </Link>
       <Link className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer">
         <svg
@@ -112,9 +128,14 @@ export default function Sidebar() {
             d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
           />
         </svg>
-        <h1 className="text-md font-bold">Profile</h1>
+        <h1 className="hidden md:block lg:block xl:block 2xl:block text-md font-bold">
+          Profile
+        </h1>
       </Link>
-      <Link to="/settings" className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer">
+      <Link
+        to="/settings"
+        className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -134,10 +155,32 @@ export default function Sidebar() {
             d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
           />
         </svg>
-        <h1 className="text-md font-bold">Settings</h1>
+        <h1 className="hidden md:block lg:block xl:block 2xl:block text-md font-bold">
+          Settings
+        </h1>
       </Link>
-      <div className="my-2 rounded-full bg-blue-500 hover:bg-blue-600 cursor-pointer px-3 py-2 text-center font-semibold">
+      <div className="hidden md:block lg:block xl:block 2xl:block my-2 rounded-full bg-blue-500 hover:bg-blue-600 cursor-pointer px-3 py-2 text-center font-semibold">
         Tweet
+      </div>
+      <div className="mt-auto text-xs hidden md:flex lg:flex xl:flex 2xl:flex my-2 rounded-full bg-stone-900 hover:bg-stone-800 cursor-pointer px-3 py-2 font-semibold">
+        <div>
+          <div className="font-bold">PowerBilla</div>
+          <div className="text-stone-400">@PowerBilla829</div>
+        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6 ml-auto"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+          />
+        </svg>
       </div>
     </div>
   );

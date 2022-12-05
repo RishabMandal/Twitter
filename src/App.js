@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Router>
-        <div className="h-screen justify-center bg-black flex">
+        <div className="h-full justify-center bg-black flex">
           <Sidebar />
           <MainFeed />
           <ExploreSection />

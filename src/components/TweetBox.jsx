@@ -53,7 +53,7 @@ export default function TweetBox({ Input, setInput }) {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5 stroke-blue-400"
+            className="w-5 h-5 cursor-pointer stroke-blue-400"
           >
             <path
               strokeLinecap="round"
@@ -68,7 +68,7 @@ export default function TweetBox({ Input, setInput }) {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5 stroke-blue-400"
+            className="w-5 h-5 cursor-pointer stroke-blue-400"
           >
             <path
               strokeLinecap="round"
@@ -83,7 +83,7 @@ export default function TweetBox({ Input, setInput }) {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-5 h-5 stroke-blue-400"
+              className="w-5 h-5 cursor-pointer stroke-blue-400"
               onClick={() => setShowEmojis(!ShowEmojis)}
             >
               <path
@@ -108,7 +108,7 @@ export default function TweetBox({ Input, setInput }) {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5 stroke-blue-400 rotate-90"
+            className="w-5 h-5 cursor-pointer stroke-blue-400 rotate-90"
           >
             <path
               strokeLinecap="round"

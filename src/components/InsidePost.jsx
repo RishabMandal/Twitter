@@ -43,7 +43,9 @@ export default function InsidePost({
           tweet={singletweet.tweet}
           hashtag={singletweet.hashtag}
           time={singletweet.time}
+          profilepic={singletweet.profilepic}
           verified={singletweet.verified}
+          postimage={singletweet.img}
           setCommenttweets={setCommenttweets}
           setCommentvisibility={true}
         />

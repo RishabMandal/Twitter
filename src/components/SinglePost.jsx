@@ -29,7 +29,8 @@ export default function SinglePost({
       profileName: "@Sktch_ComedyFan",
       tweet: "Giving standup comedy a go",
       hashtag: "#heregoesnothing",
-      time: "3m",
+      time: "3m",profilepic:"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+      img: null,
       verified: true,
     },
     {
@@ -37,7 +38,8 @@ export default function SinglePost({
       profileName: "@Sktch_ComedyFan",
       tweet: "Giving standup comedy a go",
       hashtag: "#heregoesnothing",
-      time: "3m",
+      time: "3m",profilepic:"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+      img: null,
       verified: false,
     },
     {
@@ -45,7 +47,8 @@ export default function SinglePost({
       profileName: "@Sktch_ComedyFan",
       tweet: "Giving standup comedy a go",
       hashtag: "#heregoesnothing",
-      time: "3m",
+      time: "3m",profilepic:"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+      img: null,
       verified: false,
     },
     {
@@ -53,7 +56,8 @@ export default function SinglePost({
       profileName: "@Sktch_ComedyFan",
       tweet: "Giving standup comedy a go",
       hashtag: "#heregoesnothing",
-      time: "3m",
+      time: "3m",profilepic:"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+      img: null,
       verified: false,
     },
   ]);
@@ -77,6 +81,9 @@ export default function SinglePost({
         tweet: CommentInput,
         hashtag: "#heregoesnothing",
         time: "3m",
+        profilepic:
+          "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+        img: null,
         verified: true,
       },
     ]);
@@ -95,11 +102,7 @@ export default function SinglePost({
       <div className="m-2 relative">
         <div className="flex">
           <div className="">
-            <img
-              src={profilepic}
-              alt=""
-              className="w-6 h-6 rounded-full"
-            />
+            <img src={profilepic} alt="" className="w-6 h-6 rounded-full" />
           </div>
           <div className="w-full">
             <div className="flex">
@@ -153,7 +156,7 @@ export default function SinglePost({
                 strokeWidth={1.5}
                 stroke="currentColor"
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-5 h-5 stroke-stone-600  hover:stroke-blue-400"
+                className="w-5 h-5 cursor-pointer stroke-stone-600  hover:stroke-blue-400"
               >
                 <path
                   strokeLinecap="round"
@@ -168,7 +171,7 @@ export default function SinglePost({
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-5 h-5 text-stone-600 hover:text-green-600"
+                className="w-5 h-5 cursor-pointer text-stone-600 hover:text-green-600"
               >
                 <path
                   strokeLinecap="round"
@@ -200,7 +203,7 @@ export default function SinglePost({
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-5 h-5 stroke-stone-600 hover:stroke-blue-400"
+                className="w-5 h-5 cursor-pointer stroke-stone-600 hover:stroke-blue-400"
               >
                 <path
                   strokeLinecap="round"
@@ -283,7 +286,7 @@ export default function SinglePost({
                     strokeWidth={1.5}
                     stroke="currentColor"
                     onClick={() => setIsOpen(false)}
-                    className="w-5 h-5 my-2 cursor-pointer"
+                    className="w-5 h-5 cursor-pointer my-2 cursor-pointer"
                   >
                     <path
                       strokeLinecap="round"
@@ -303,7 +306,7 @@ export default function SinglePost({
                   <div className="flex m-2">
                     <div className="">
                       <img
-                        src="https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0"
+                        src={profilepic}
                         alt=""
                         className="w-6 h-6 rounded-full"
                       />
@@ -352,6 +355,11 @@ export default function SinglePost({
                         <div className="ml-1 text-blue-400 text-sm cursor-pointer">
                           {hashtag}
                         </div>
+                        <img
+                          src={postimage}
+                          alt=""
+                          className="m-2 rounded-xl"
+                        />
                       </div>
                       <div className="flex ml-3 mt-2 justify-evenly">
                         <svg
@@ -361,7 +369,7 @@ export default function SinglePost({
                           strokeWidth={1.5}
                           stroke="currentColor"
                           onClick={() => setIsOpen(!isOpen)}
-                          className="w-5 h-5 stroke-stone-600  hover:stroke-blue-400"
+                          className="w-5 h-5 cursor-pointer stroke-stone-600  hover:stroke-blue-400"
                         >
                           <path
                             strokeLinecap="round"
@@ -375,7 +383,7 @@ export default function SinglePost({
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="currentColor"
-                          className="w-5 h-5 text-stone-600 hover:text-green-600"
+                          className="w-5 h-5 cursor-pointer text-stone-600 hover:text-green-600"
                         >
                           <path
                             strokeLinecap="round"
@@ -406,7 +414,7 @@ export default function SinglePost({
                           viewBox="0 0 24 24"
                           strokeWidth={1.5}
                           stroke="currentColor"
-                          className="w-5 h-5 stroke-stone-600 hover:stroke-blue-400"
+                          className="w-5 h-5 cursor-pointer stroke-stone-600 hover:stroke-blue-400"
                         >
                           <path
                             strokeLinecap="round"
@@ -444,7 +452,7 @@ export default function SinglePost({
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
                             stroke="currentColor"
-                            className="w-5 h-5 stroke-blue-400"
+                            className="w-5 h-5 cursor-pointer stroke-blue-400"
                           >
                             <path
                               strokeLinecap="round"
@@ -459,7 +467,7 @@ export default function SinglePost({
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
                             stroke="currentColor"
-                            className="w-5 h-5 stroke-blue-400"
+                            className="w-5 h-5 cursor-pointer stroke-blue-400"
                           >
                             <path
                               strokeLinecap="round"
@@ -473,7 +481,7 @@ export default function SinglePost({
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
                             stroke="currentColor"
-                            className="w-5 h-5 stroke-blue-400"
+                            className="w-5 h-5 cursor-pointer stroke-blue-400"
                             onClick={() => setShowEmojis(!ShowEmojis)}
                           >
                             <path
@@ -495,7 +503,7 @@ export default function SinglePost({
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
                             stroke="currentColor"
-                            className="w-5 h-5 stroke-blue-400 rotate-90"
+                            className="w-5 h-5 cursor-pointer stroke-blue-400 rotate-90"
                           >
                             <path
                               strokeLinecap="round"

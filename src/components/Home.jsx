@@ -11,7 +11,8 @@ export default function Home() {
       tweet: "Giving standup comedy a go",
       hashtag: "#heregoesnothing",
       time: "3m",
-      profilepic:"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+      profilepic:
+        "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
       img: null,
       verified: true,
     },
@@ -21,7 +22,8 @@ export default function Home() {
       tweet: "Thinking of giving standup comedy a go",
       hashtag: "#heregoesnothing",
       time: "3m",
-      profilepic:"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+      profilepic:
+        "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
       img: null,
       verified: false,
     },
@@ -42,7 +44,8 @@ export default function Home() {
       tweet: "Giving standup comedy a go",
       hashtag: "#heregoesnothing",
       time: "3m",
-      profilepic:"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+      profilepic:
+        "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
       img: null,
       verified: false,
     },
@@ -52,11 +55,14 @@ export default function Home() {
       tweet: "Giving standup comedy a go",
       hashtag: "#heregoesnothing",
       time: "3m",
-      profilepic:"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+      profilepic:
+        "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
       img: null,
       verified: false,
     },
   ]);
+
+//   console.log(tweets);
 
   useEffect(() => {
     settweets((tweets) => [
@@ -67,7 +73,8 @@ export default function Home() {
         tweet: Input,
         hashtag: "#heregoesnothing",
         time: "3m",
-        profilepic:"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+        profilepic:
+          "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
         verified: true,
       },
     ]);
@@ -78,7 +85,7 @@ export default function Home() {
     <div className="w-full max-w-[600px] bg-[#292a2d]">
       <div className="mx-[0.05rem] h-full bg-black text-white">
         {/* Actual content after login  */}
-        <div className="flex sticky top-0">
+        <div className="flex sticky top-0 bg-black z-10">
           <div className="p-2 font-bold">Home</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"

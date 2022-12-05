@@ -1,7 +1,7 @@
 import React from "react";
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar({username,useremail}) {
   return (
     <div className="hidden min-h-screen sticky top-0 sm:flex md:flex lg:flex xl:flex 2xl:flex flex-col lg:w-1/4 xl:w-1/4 2xl:w-1/4 max-w-[300px] h-full py-3 px-7 bg-black text-white">
       <div>
@@ -113,7 +113,10 @@ export default function Sidebar() {
           Bookmarks
         </h1>
       </Link>
-      <Link to="/profile" className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer">
+      <Link
+        to="/profile"
+        className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -163,9 +166,18 @@ export default function Sidebar() {
       <div className="hidden md:block lg:block xl:block 2xl:block my-2 rounded-full bg-blue-500 hover:bg-blue-600 cursor-pointer px-3 py-2 text-center font-semibold">
         Tweet
       </div>
+      <div
+        onClick={() => {
+          localStorage.clear();
+          window.location.reload();
+        }}
+        className="hidden md:block lg:block xl:block 2xl:block my-2 rounded-full bg-blue-500 hover:bg-blue-600 cursor-pointer px-3 py-2 text-center font-semibold"
+      >
+        Logout
+      </div>
       <div className="mt-auto text-xs hidden md:flex lg:flex xl:flex 2xl:flex my-2 rounded-full bg-stone-900 hover:bg-stone-800 cursor-pointer px-3 py-2 font-semibold">
         <div>
-          <div className="font-bold">PowerBilla</div>
+          <div className="font-bold">{username}</div>
           <div className="text-stone-400">@PowerBilla829</div>
         </div>
         <svg

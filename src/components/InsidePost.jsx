@@ -1,6 +1,12 @@
 import React from "react";
+import SinglePost from "./SinglePost";
 
-export default function InsidePost({ Insidepostview, setInsidepostview }) {
+export default function InsidePost({
+  Insidepostview,
+  setInsidepostview,
+  Commenttweets,
+  setCommenttweets,
+}) {
   return (
     <div>
       <hr
@@ -29,7 +35,19 @@ export default function InsidePost({ Insidepostview, setInsidepostview }) {
         </svg>
         <div className="font-semibold">Tweets</div>
       </div>
-      <div className="text-xs mx-2 my-1">No tweets on this tweet yet</div>
+      <div className="text-xs mx-2 my-1">View tweets on this tweet</div>
+      {Commenttweets.map((singletweet) => (
+        <SinglePost
+          name={singletweet.name}
+          profileName={singletweet.profileName}
+          tweet={singletweet.tweet}
+          hashtag={singletweet.hashtag}
+          time={singletweet.time}
+          verified={singletweet.verified}
+          setCommenttweets={setCommenttweets}
+          setCommentvisibility={true}
+        />
+      ))}
       <hr
         style={{
           color: "#292a2d",

@@ -15,8 +15,11 @@ export default function Posts({ tweets, settweets }) {
           tweet={singletweet.tweet}
           hashtag={singletweet.hashtag}
           time={singletweet.time}
+          profilepic={singletweet.profilepic}
           verified={singletweet.verified}
+          postimage={singletweet.img}
           settweets={settweets}
+          setCommentvisibility={false}
         />
       ))}
     </div>

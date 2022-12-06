@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-export default function Profile() {
+export default function Profile({ username, useremail }) {
+  const textareainput = useRef(null);
+  const [localprofilepic, setlocalprofilepic] = useState();
+
+  useEffect(() => {
+    localStorage.setItem("profile pic", localprofilepic);
+  }, [localprofilepic]);
+
   return (
     <div className="w-full max-w-[600px] bg-[#292a2d]">
       <div className="mx-[0.05rem] pt-1 h-full bg-black text-white">
@@ -20,8 +27,59 @@ export default function Profile() {
             />
           </svg>
 
-          <div>Username</div>
+          <div className="font-bold">{username}</div>
         </div>
+        <hr
+          style={{
+            color: "#292a2d",
+            backgroundColor: "#292a2d",
+            height: 0.5,
+            borderColor: "#292a2d",
+          }}
+        />
+        <div className="mx-3 my-2 font-bold">General</div>
+        <hr
+          style={{
+            color: "#292a2d",
+            backgroundColor: "#292a2d",
+            height: 0.5,
+            borderColor: "#292a2d",
+          }}
+        />
+        <div className="px-3 py-2 hover:bg-[#25292c]">
+          <div className="text-sm">Your account</div>
+        </div>
+        <div className="px-3 py-2 flex text-xs">
+          <div className="my-auto">Change username</div>
+          <input
+            ref={textareainput}
+            placeholder="username"
+            className="bg-black mx-4 p-1 rounded-md border-2 border-stone-600"
+            type="text"
+          />
+          <button
+            onClick={() => {
+              localStorage.setItem("username", textareainput.current.value);
+            }}
+            className="bg-blue-500 hover:bg-blue-600 rounded-full py-1 px-3"
+          >
+            Save
+          </button>
+        </div>
+        <div className="px-3 py-2 flex text-xs">
+          <div className="my-auto">Change profile photo</div>
+          <input
+            onChange={(events) => {
+              setlocalprofilepic(URL.createObjectURL(events.target.files[0]));
+            }}
+            className="bg-black mx-4 p-1 rounded-md border-2 border-stone-600"
+            type="file"
+          />
+          <button className="bg-blue-500 hover:bg-blue-600 rounded-full py-1 px-3">
+            Save
+          </button>
+        </div>
+        {localprofilepic && <img src={localprofilepic} alt="" />}
       </div>
     </div>
   );

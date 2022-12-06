@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Posts from "./Posts";
 import TweetBox from "./TweetBox";
 
-export default function Home() {
+export default function Home({ username, useremail }) {
   const [Input, setInput] = useState(null);
   const [tweets, settweets] = useState([
     {
@@ -17,14 +17,14 @@ export default function Home() {
       verified: true,
     },
     {
-      name: "Powerbilla",
-      profileName: "@Sktch_ComedyFan",
-      tweet: "Thinking of giving standup comedy a go",
-      hashtag: "#heregoesnothing",
+      name: "Penang.Indian.memes",
+      profileName: "@PenangMemes",
+      tweet: "Me at 3am setting my alarm for 7am",
+      hashtag: "#IndianMemes",
       time: "3m",
       profilepic:
-        "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
-      img: null,
+        "https://pbs.twimg.com/profile_images/1505414500639719430/HtLBxGNY_400x400.jpg",
+      img: "https://pbs.twimg.com/media/FivS25cVUAAb-dn?format=jpg&name=small",
       verified: false,
     },
     {
@@ -62,22 +62,25 @@ export default function Home() {
     },
   ]);
 
-//   console.log(tweets);
+  //   console.log(tweets);
 
   useEffect(() => {
-    settweets((tweets) => [
-      ...tweets,
-      {
-        name: "Powerbilla",
-        profileName: "@Sktch_ComedyFan",
-        tweet: Input,
-        hashtag: "#heregoesnothing",
-        time: "3m",
-        profilepic:
-          "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
-        verified: true,
-      },
-    ]);
+    if (Input) {
+      settweets((tweets) => [
+        ...tweets,
+        {
+          name: username,
+          profileName: "@Sktch_ComedyFan",
+          tweet: Input,
+          hashtag: "#heregoesnothing",
+          time: "3m",
+          profilepic:
+            localStorage.getItem("profile pic") ||
+            "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+          verified: true,
+        },
+      ]);
+    }
     // console.log(Input);
   }, [Input]);
 
@@ -111,7 +114,12 @@ export default function Home() {
             borderColor: "#292a2d",
           }}
         />
-        <TweetBox Input={Input} setInput={setInput} />
+        <TweetBox
+          Input={Input}
+          setInput={setInput}
+          username={username}
+          useremail={useremail}
+        />
         <hr
           style={{
             color: "#292a2d",
@@ -120,7 +128,12 @@ export default function Home() {
             borderColor: "#292a2d",
           }}
         />
-        <Posts tweets={tweets} settweets={settweets} />
+        <Posts
+          tweets={tweets}
+          settweets={settweets}
+          username={username}
+          useremail={useremail}
+        />
       </div>
     </div>
   );

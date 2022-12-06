@@ -2,7 +2,7 @@ import React from "react";
 import SinglePost from "./SinglePost";
 import { useState } from "react";
 
-export default function Posts({ tweets, settweets }) {
+export default function Posts({ tweets, settweets, username, useremail }) {
   return (
     <div>
       {/* Basically we are using many single posts, putting data into them */}
@@ -20,6 +20,7 @@ export default function Posts({ tweets, settweets }) {
           postimage={singletweet.img}
           settweets={settweets}
           setCommentvisibility={false}
+          username={username}
         />
       ))}
     </div>

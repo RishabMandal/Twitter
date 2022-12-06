@@ -77,6 +77,25 @@ export default function Settings() {
             <div className="px-3 py-2 hover:bg-[#25292c]">
               <div className="text-sm">Additional resources</div>
             </div>
+            <hr
+              style={{
+                color: "#292a2d",
+                backgroundColor: "#292a2d",
+                height: 0.5,
+                borderColor: "#292a2d",
+              }}
+            />
+            <div
+              onClick={() => {
+                if (window.confirm("Are you sure you want to logout?")) {
+                  localStorage.clear();
+                  window.location.reload();
+                }
+              }}
+              className="px-3 py-2 cursor-pointer font-bold hover:bg-[#25292c]"
+            >
+              Logout
+            </div>
           </div>
         </div>
       </div>

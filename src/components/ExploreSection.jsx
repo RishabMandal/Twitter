@@ -1,4 +1,5 @@
 import React from "react";
+import News from "./News";
 
 export default function ExploreSection() {
   return (
@@ -27,6 +28,8 @@ export default function ExploreSection() {
             className="px-2 text-sm placeholder:text-[#71767a] rounded-full bg-[#25292c]"
           />
         </div>
+        {/* News aka hat's happening */}
+        <News />
         {/* Trends for you  */}
         <div className="mx-4 rounded-xl mb-1 bg-[#25292c]">
           <div className="px-2 py-1 font-bold flex">

@@ -1,16 +1,16 @@
 import React from "react";
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-export default function Sidebar({username,useremail}) {
+export default function Sidebar({ username, useremail }) {
   return (
     <div className="hidden min-h-screen sticky top-0 sm:flex md:flex lg:flex xl:flex 2xl:flex flex-col lg:w-1/4 xl:w-1/4 2xl:w-1/4 max-w-[300px] h-full py-3 px-7 bg-black text-white">
-      <div>
+      <Link to="/explore">
         <img
           src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/twitter-icon-18-256.png"
           alt=""
           className="ml-3 mb-2 h-6 w-6 cursor-pointer"
         />
-      </div>
+      </Link>
       <Link
         to="/"
         className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer"
@@ -55,7 +55,10 @@ export default function Sidebar({username,useremail}) {
           Explore
         </h1>
       </Link>
-      <Link className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer">
+      <Link
+        to="/notifications"
+        className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -74,7 +77,10 @@ export default function Sidebar({username,useremail}) {
           Notifications
         </h1>
       </Link>
-      <Link className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer">
+      <Link
+        to="/messages"
+        className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -93,7 +99,10 @@ export default function Sidebar({username,useremail}) {
           Messages
         </h1>
       </Link>
-      <Link className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer">
+      <Link
+        to="/bookmarks"
+        className="flex flex-row space-x-4 px-3 py-2 rounded-full hover:bg-gray-900 cursor-pointer"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -163,18 +172,12 @@ export default function Sidebar({username,useremail}) {
           Settings
         </h1>
       </Link>
-      <div className="hidden md:block lg:block xl:block 2xl:block my-2 rounded-full bg-blue-500 hover:bg-blue-600 cursor-pointer px-3 py-2 text-center font-semibold">
-        Tweet
-      </div>
-      <div
-        onClick={() => {
-          localStorage.clear();
-          window.location.reload();
-        }}
+      <Link
+        to="/"
         className="hidden md:block lg:block xl:block 2xl:block my-2 rounded-full bg-blue-500 hover:bg-blue-600 cursor-pointer px-3 py-2 text-center font-semibold"
       >
-        Logout
-      </div>
+        Tweet
+      </Link>
       <div className="mt-auto text-xs hidden md:flex lg:flex xl:flex 2xl:flex my-2 rounded-full bg-stone-900 hover:bg-stone-800 cursor-pointer px-3 py-2 font-semibold">
         <div>
           <div className="font-bold">{username}</div>

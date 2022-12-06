@@ -3,10 +3,11 @@ import React, { useState, useEffect, useRef } from "react";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 
-export default function TweetBox({ Input, setInput }) {
+export default function TweetBox({ Input, setInput, username, useremail }) {
   const [LocalInput, setLocalInput] = useState(null);
   const [SelectedFile, setSelectedFile] = useState(null);
   const [ShowEmojis, setShowEmojis] = useState(false);
+  const [alertstate, setalertstate] = useState(false);
 
   const textareainput = useRef(null);
 
@@ -31,7 +32,7 @@ export default function TweetBox({ Input, setInput }) {
       <div className="flex">
         <div className="">
           <img
-            src="https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0"
+            src={localStorage.getItem("profile pic") ||"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0"}
             alt=""
             className="w-6 h-6 rounded-full"
           />
@@ -45,6 +46,22 @@ export default function TweetBox({ Input, setInput }) {
           className="ml-3 mb-1 p-1 text-sm my-auto w-full bg-black placeholder:text-stone-600"
         ></textarea>
       </div>
+
+      {alertstate && (
+        <div
+          class="bg-blue-500 flex rounded-xl fixed top-0 z-20 border-t border-b border-blue-500 text-white px-4 py-3"
+          role="alert"
+        >
+          <p class="font-semibold">Your tweet was sent.</p>
+          <button
+            onClick={() => setalertstate(!alertstate)}
+            className="font-bold mx-2"
+          >
+            Ok
+          </button>
+          {/* <p class="text-sm">Some additional text to explain said message.</p> */}
+        </div>
+      )}
       <div className="flex">
         <div className="flex ml-10 my-2 space-x-2">
           <svg
@@ -95,8 +112,6 @@ export default function TweetBox({ Input, setInput }) {
             {ShowEmojis && (
               <div className="sticky top-0">
                 <Picker
-                  //   onSelect={addEmoji}
-                  // className="absolute mt-[465px]"
                   onEmojiSelect={addEmoji}
                 />
               </div>
@@ -118,7 +133,13 @@ export default function TweetBox({ Input, setInput }) {
           </svg>
         </div>
         <div
-          onClick={addTweet}
+          onClick={() => {
+            addTweet();
+            LocalInput ? setalertstate(!alertstate) : setalertstate(alertstate);
+            // setTimeout(() => {
+            //   setalertstate(!alertstate);
+            // }, 1000);
+          }}
           className="ml-auto my-auto mr-1 text-sm rounded-full bg-blue-500 hover:bg-blue-600 cursor-pointer px-3 py-1 h-7 text-center font-semibold"
         >
           Tweet

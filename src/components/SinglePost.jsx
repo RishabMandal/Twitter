@@ -15,6 +15,7 @@ export default function SinglePost({
   postimage,
   settweets,
   setCommentvisibility,
+  username,
 }) {
   const [Liked, setLiked] = useState(false);
   const [Insidepostview, setInsidepostview] = useState(false);
@@ -29,7 +30,9 @@ export default function SinglePost({
       profileName: "@Sktch_ComedyFan",
       tweet: "Giving standup comedy a go",
       hashtag: "#heregoesnothing",
-      time: "3m",profilepic:"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+      time: "3m",
+      profilepic:
+        "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
       img: null,
       verified: true,
     },
@@ -38,7 +41,9 @@ export default function SinglePost({
       profileName: "@Sktch_ComedyFan",
       tweet: "Giving standup comedy a go",
       hashtag: "#heregoesnothing",
-      time: "3m",profilepic:"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+      time: "3m",
+      profilepic:
+        "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
       img: null,
       verified: false,
     },
@@ -47,7 +52,9 @@ export default function SinglePost({
       profileName: "@Sktch_ComedyFan",
       tweet: "Giving standup comedy a go",
       hashtag: "#heregoesnothing",
-      time: "3m",profilepic:"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+      time: "3m",
+      profilepic:
+        "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
       img: null,
       verified: false,
     },
@@ -56,7 +63,9 @@ export default function SinglePost({
       profileName: "@Sktch_ComedyFan",
       tweet: "Giving standup comedy a go",
       hashtag: "#heregoesnothing",
-      time: "3m",profilepic:"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+      time: "3m",
+      profilepic:
+        "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
       img: null,
       verified: false,
     },
@@ -73,20 +82,23 @@ export default function SinglePost({
   }
 
   useEffect(() => {
-    setCommenttweets((Commenttweets) => [
-      ...Commenttweets,
-      {
-        name: "Powerbilla",
-        profileName: "@Sktch_ComedyFan",
-        tweet: CommentInput,
-        hashtag: "#heregoesnothing",
-        time: "3m",
-        profilepic:
-          "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
-        img: null,
-        verified: true,
-      },
-    ]);
+    if (CommentInput) {
+      setCommenttweets((Commenttweets) => [
+        ...Commenttweets,
+        {
+          name: username,
+          profileName: "@Sktch_ComedyFan",
+          tweet: CommentInput,
+          hashtag: "#heregoesnothing",
+          time: "3m",
+          profilepic:
+            localStorage.getItem("profile pic") ||
+            "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0",
+          img: null,
+          verified: true,
+        },
+      ]);
+    }
   }, [CommentInput]);
 
   return (
@@ -286,7 +298,7 @@ export default function SinglePost({
                     strokeWidth={1.5}
                     stroke="currentColor"
                     onClick={() => setIsOpen(false)}
-                    className="w-5 h-5 cursor-pointer my-2 cursor-pointer"
+                    className="w-5 h-5 my-2 cursor-pointer"
                   >
                     <path
                       strokeLinecap="round"
@@ -431,7 +443,7 @@ export default function SinglePost({
                       <div className="flex">
                         <div className="">
                           <img
-                            src="https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0"
+                            src={localStorage.getItem("profile pic") ||"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0"}
                             alt=""
                             className="w-6 h-6 rounded-full"
                           />

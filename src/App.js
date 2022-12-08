@@ -6,14 +6,13 @@ import Sidebar from "./components/Sidebar";
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { auth, provider } from "./firebase.js";
 import { signInWithPopup } from "firebase/auth";
-import { data } from "autoprefixer";
+// import { data } from "autoprefixer";
 
 function App() {
   const [signin, setsignin] = useState(false);
   const [alertstate, setalertstate] = useState(false);
   const [useremail, setuseremail] = useState();
   const [username, setusername] = useState();
-  // const userid =
   function handlesignin() {
     signInWithPopup(auth, provider).then((data) => {
       setuseremail(data.user.email);
@@ -38,15 +37,15 @@ function App() {
           {/* Error alert  */}
           {alertstate && (
             <div
-              class="bg-red-100 w-screen fixed top-0 border border-red-400 text-red-700 px-4 py-3 rounded"
+              className="bg-red-100 w-screen fixed top-0 border border-red-400 text-red-700 px-4 py-3 rounded"
               role="alert"
             >
-              <strong class="font-bold">Error! </strong>
-              <span class="block sm:inline">Invalid username</span>
-              <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+              <strong className="font-bold">Error! </strong>
+              <span className="block sm:inline">Invalid username</span>
+              <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
                 <svg
                   onClick={() => setalertstate(!alertstate)}
-                  class="fill-current h-6 w-6 text-red-500"
+                  className="fill-current h-6 w-6 text-red-500"
                   role="button"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -100,7 +99,11 @@ function App() {
         <Router>
           <div className="h-full justify-center bg-black flex">
             <Sidebar username={username} useremail={useremail} />
-            <MainFeed username={username} useremail={useremail} />
+            <MainFeed
+              username={username}
+              setusername={setusername}
+              useremail={useremail}
+            />
             <ExploreSection username={username} useremail={useremail} />
           </div>
         </Router>

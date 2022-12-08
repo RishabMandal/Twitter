@@ -8,7 +8,7 @@ import Notifications from "./Notifications";
 import Bookmarks from "./Bookmarks";
 import Messages from "./Messages";
 
-export default function MainFeed({ username, useremail }) {
+export default function MainFeed({ username, setusername, useremail }) {
   return (
     <>
       <Routes>
@@ -38,7 +38,13 @@ export default function MainFeed({ username, useremail }) {
         />
         <Route
           path="/settings"
-          element={<Settings username={username} useremail={useremail} />}
+          element={
+            <Settings
+              username={username}
+              setusername={setusername}
+              useremail={useremail}
+            />
+          }
         />
       </Routes>
     </>

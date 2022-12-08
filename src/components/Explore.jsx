@@ -26,7 +26,7 @@ export default function Explore() {
                 <input
                   type="text"
                   placeholder="Search Twitter"
-                  className="px-2 text-sm placeholder:text-[#71767a] rounded-full bg-[#25292c]"
+                  className="px-2 w-full text-sm placeholder:text-[#71767a] rounded-full bg-[#25292c]"
                 />
               </div>
               <svg

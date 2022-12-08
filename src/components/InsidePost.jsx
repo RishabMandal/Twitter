@@ -36,7 +36,7 @@ export default function InsidePost({
         <div className="font-semibold">Tweets</div>
       </div>
       <div className="text-xs mx-2 my-1">View tweets on this tweet</div>
-      {Commenttweets.map((singletweet) => (
+      {Commenttweets.map((singletweet, index) => (
         <SinglePost
           name={singletweet.name}
           profileName={singletweet.profileName}
@@ -48,6 +48,7 @@ export default function InsidePost({
           postimage={singletweet.img}
           setCommenttweets={setCommenttweets}
           setCommentvisibility={true}
+          Commentindex={index}
         />
       ))}
       <hr

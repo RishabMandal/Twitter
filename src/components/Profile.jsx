@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 
-export default function Profile({ username, useremail }) {
+export default function Profile({ username, setusername, useremail }) {
   const textareainput = useRef(null);
   const [localprofilepic, setlocalprofilepic] = useState();
 
   useEffect(() => {
-    localStorage.setItem("profile pic", localprofilepic);
+    if (localprofilepic) {
+      localStorage.setItem("profile pic", localprofilepic);
+    }
   }, [localprofilepic]);
 
   return (
@@ -59,7 +61,8 @@ export default function Profile({ username, useremail }) {
           />
           <button
             onClick={() => {
-              localStorage.setItem("username", textareainput.current.value);
+                localStorage.setItem("username", textareainput.current.value);
+                setusername(textareainput.current.value);
             }}
             className="bg-blue-500 hover:bg-blue-600 rounded-full py-1 px-3"
           >

@@ -8,8 +8,9 @@ export default function Posts({ tweets, settweets, username, useremail }) {
       {/* Basically we are using many single posts, putting data into them */}
       {/* and displaying them at once here  */}
       {/* <SinglePost /> */}
-      {tweets.map((singletweet) => (
+      {tweets.map((singletweet, index) => (
         <SinglePost
+          key={index}
           name={singletweet.name}
           profileName={singletweet.profileName}
           tweet={singletweet.tweet}
@@ -18,9 +19,11 @@ export default function Posts({ tweets, settweets, username, useremail }) {
           profilepic={singletweet.profilepic}
           verified={singletweet.verified}
           postimage={singletweet.img}
+          tweets={tweets}
           settweets={settweets}
           setCommentvisibility={false}
           username={username}
+          index={index}
         />
       ))}
     </div>

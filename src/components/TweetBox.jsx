@@ -3,18 +3,40 @@ import React, { useState, useEffect, useRef } from "react";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 
-export default function TweetBox({ Input, setInput, username, useremail }) {
+export default function TweetBox({
+  Input,
+  setInput,
+  setImageInput,
+  username,
+  useremail,
+}) {
   const [LocalInput, setLocalInput] = useState(null);
   const [SelectedFile, setSelectedFile] = useState(null);
+  const filePickerRef = useRef(null);
   const [ShowEmojis, setShowEmojis] = useState(false);
   const [alertstate, setalertstate] = useState(false);
 
   const textareainput = useRef(null);
 
+  const addImageToPost = (e) => {
+    const reader = new FileReader();
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
+
+    reader.onload = (readerEvent) => {
+      setSelectedFile(readerEvent.target.result);
+    };
+  };
+
   function addTweet() {
     if (LocalInput) {
       setInput(LocalInput);
       textareainput.current.value = null;
+    }
+    if (SelectedFile) {
+      setImageInput(SelectedFile);
+      setSelectedFile(null);
     }
   }
 
@@ -32,7 +54,10 @@ export default function TweetBox({ Input, setInput, username, useremail }) {
       <div className="flex">
         <div className="">
           <img
-            src={localStorage.getItem("profile pic") ||"https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0"}
+            src={
+              localStorage.getItem("profile pic") ||
+              "https://a.pinatafarm.com/312x296/ae7f8ccd22/sad-thumbs-up-cat.jpg/m/522x0"
+            }
             alt=""
             className="w-6 h-6 rounded-full"
           />
@@ -47,19 +72,42 @@ export default function TweetBox({ Input, setInput, username, useremail }) {
         ></textarea>
       </div>
 
+      {/* Selectef file  */}
+      {SelectedFile && (
+        <div>
+          <div className="cursor-pointer" onClick={() => setSelectedFile(null)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
+          <img src={SelectedFile} className="max-h-80 object-contain" alt="" />
+        </div>
+      )}
+
+      {/* Alert */}
       {alertstate && (
         <div
-          class="bg-blue-500 flex rounded-xl fixed top-0 z-20 border-t border-b border-blue-500 text-white px-4 py-3"
+          className="bg-blue-500 flex rounded-xl fixed top-0 z-20 border-t border-b border-blue-500 text-white px-4 py-3"
           role="alert"
         >
-          <p class="font-semibold">Your tweet was sent.</p>
+          <p className="font-semibold">Your tweet was sent.</p>
           <button
             onClick={() => setalertstate(!alertstate)}
             className="font-bold mx-2"
           >
             Ok
           </button>
-          {/* <p class="text-sm">Some additional text to explain said message.</p> */}
         </div>
       )}
       <div className="flex">
@@ -70,6 +118,7 @@ export default function TweetBox({ Input, setInput, username, useremail }) {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
+            onClick={() => filePickerRef.current.click()}
             className="w-5 h-5 cursor-pointer stroke-blue-400"
           >
             <path
@@ -78,6 +127,12 @@ export default function TweetBox({ Input, setInput, username, useremail }) {
               d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
             />
           </svg>
+          <input
+            type="file"
+            onChange={addImageToPost}
+            hidden
+            ref={filePickerRef}
+          />
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -110,10 +165,8 @@ export default function TweetBox({ Input, setInput, username, useremail }) {
               />
             </svg>
             {ShowEmojis && (
-              <div className="sticky top-0">
-                <Picker
-                  onEmojiSelect={addEmoji}
-                />
+              <div className="sticky top-0 max-w-[320px] ml-[-80px]">
+                <Picker onEmojiSelect={addEmoji} />
               </div>
             )}
           </div>
@@ -136,9 +189,6 @@ export default function TweetBox({ Input, setInput, username, useremail }) {
           onClick={() => {
             addTweet();
             LocalInput ? setalertstate(!alertstate) : setalertstate(alertstate);
-            // setTimeout(() => {
-            //   setalertstate(!alertstate);
-            // }, 1000);
           }}
           className="ml-auto my-auto mr-1 text-sm rounded-full bg-blue-500 hover:bg-blue-600 cursor-pointer px-3 py-1 h-7 text-center font-semibold"
         >

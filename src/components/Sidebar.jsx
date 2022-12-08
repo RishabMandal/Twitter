@@ -178,7 +178,10 @@ export default function Sidebar({ username, useremail }) {
       >
         Tweet
       </Link>
-      <div className="mt-auto text-xs hidden md:flex lg:flex xl:flex 2xl:flex my-2 rounded-full bg-stone-900 hover:bg-stone-800 cursor-pointer px-3 py-2 font-semibold">
+      <Link
+        to="/profile"
+        className="mt-auto text-xs hidden md:flex lg:flex xl:flex 2xl:flex my-2 rounded-full bg-stone-900 hover:bg-stone-800 cursor-pointer px-3 py-2 font-semibold"
+      >
         <div>
           <div className="font-bold">{username}</div>
           <div className="text-stone-400">@PowerBilla829</div>
@@ -197,7 +200,7 @@ export default function Sidebar({ username, useremail }) {
             d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
           />
         </svg>
-      </div>
+      </Link>
     </div>
   );
 }

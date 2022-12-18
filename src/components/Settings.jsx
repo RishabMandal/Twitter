@@ -77,6 +77,9 @@ export default function Settings() {
             <div className="px-3 py-2 hover:bg-[#25292c]">
               <div className="text-sm">Additional resources</div>
             </div>
+            <div className="px-3 py-2 hover:bg-[#25292c]">
+              <div className="text-sm">Voice Assistant</div>
+            </div>
             <hr
               style={{
                 color: "#292a2d",

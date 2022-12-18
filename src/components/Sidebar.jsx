@@ -1,7 +1,91 @@
 import React from "react";
-import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import SpeechRecognition from "react-speech-recognition";
+// import SpeechRecognition, {
+//   useSpeechRecognition,
+// } from "react-speech-recognition";
+// import { useSpeechSynthesis } from "react-speech-kit";
+import VoiceAssistant from "./VoiceAssistant";
 
 export default function Sidebar({ username, useremail }) {
+  //   const { speak } = useSpeechSynthesis();
+
+  //   // Voice Recognition Assistant
+  //   const commands = [
+  //     // {
+  //     //   command: [
+  //     //     "Go to * page",
+  //     //     "Go to *page",
+  //     //     "Go to * tab",
+  //     //     "Proceed to *",
+  //     //     "Go to *",
+  //     //     "go to *",
+  //     //     "Open * page",
+  //     //     "Open *",
+  //     //   ],
+  //     //   callback: (redirectPage) => setRedirectUrl(redirectPage),
+  //     // },
+  //     {
+  //       command: "Good morning",
+  //       callback: () => speak({ text: "Good morning" }),
+  //     },
+  //     {
+  //       command: "Scroll to top",
+  //       callback: () => {
+  //         window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  //       },
+  //     },
+  //   ];
+
+  //   const { transcript } = useSpeechRecognition({ commands });
+  //   const [redirectUrl, setRedirectUrl] = useState("");
+  //   const pages = [
+  //     "home",
+  //     "explore",
+  //     "notifications",
+  //     "messages",
+  //     "bookmarks",
+  //     "profile",
+  //     "settings",
+  //   ];
+  //   const urls = {
+  //     home: "/",
+  //     explore: "/explore",
+  //     notifications: "/notifications",
+  //     messages: "/messages",
+  //     bookmarks: "/bookmarks",
+  //     profile: "/profile",
+  //     settings: "/settings",
+  //   };
+
+  if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+    return null;
+  }
+
+  //   let redirect = "";
+
+  //   //   if (redirectUrl) {
+  //   //     if (pages.includes(redirectUrl)) {
+  //   //       redirect = <Navigate replace to={urls[redirectUrl]} />;
+  //   //       //   redirect = <Navigate replace={true} to={urls[redirectUrl]} />;
+  //   //     } else {
+  //   //       redirect = <p>Could not find page: {redirectUrl}</p>;
+  //   //     }
+  //   //   }
+  //   if (redirectUrl) {
+  //     if (pages.includes(redirectUrl)) {
+  //       //   navigate(urls[redirectUrl]);
+  //       //   return navigate(urls[redirectUrl]);
+  //       //   {<Navigate to={urls[redirectUrl]} />;}
+  //       //   {
+  //       //     statey && (redirect = <Navigate to={urls[redirectUrl]} />);
+  //       //   }
+  //       //   setstatey(false);
+  //       //   redirect=navigate(urls[redirectUrl]);
+  //     } else {
+  //     }
+  //   }
+
   return (
     <div className="hidden min-h-screen sticky top-0 sm:flex md:flex lg:flex xl:flex 2xl:flex flex-col lg:w-1/4 xl:w-1/4 2xl:w-1/4 max-w-[300px] h-full py-3 px-7 bg-black text-white">
       <Link to="/explore">
@@ -174,7 +258,7 @@ export default function Sidebar({ username, useremail }) {
       </Link>
       <Link
         to="/"
-        className="hidden md:block lg:block xl:block 2xl:block my-2 rounded-full bg-blue-500 hover:bg-blue-600 cursor-pointer px-3 py-2 text-center font-semibold"
+        className="hidden transition ease-in md:block lg:block xl:block 2xl:block my-2 rounded-full bg-blue-500 hover:bg-blue-600 cursor-pointer px-3 py-2 text-center font-semibold"
       >
         Tweet
       </Link>
@@ -201,6 +285,43 @@ export default function Sidebar({ username, useremail }) {
           />
         </svg>
       </Link>
+
+      {/* // Voice assistant  */}
+      <div className="fixed bottom-20 right-10 z-30 bg-black">
+        {/* <div className="hidden">{redirect}</div> */}
+        {/* <p id="transcript">Transcript: {transcript}</p>
+        <button
+          className="ml-auto mx-3 flex"
+          onClick={SpeechRecognition.startListening}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6 text-blue-500"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"
+            />
+          </svg>
+          Start Listening
+        </button>
+
+        <button
+          className="ml-auto mx-3"
+          onClick={() => {
+            SpeechRecognition.abortListening();
+            SpeechRecognition.stopListening();
+          }}
+        >
+          Stop
+        </button> */}
+        <VoiceAssistant />
+      </div>
     </div>
   );
 }

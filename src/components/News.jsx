@@ -1,16 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 export default function News() {
-  const newsURL = "https://saurav.tech/NewsAPI/everything/cnn.json";
-  const [news, setnews] = useState(null);
+  // const newsURL = "https://saurav.tech/NewsAPI/everything/cnn.json";
+  const newsURL =
+    "https://saurav.tech/NewsAPI/top-headlines/category/general/in.json";
+  // const [news, setnews] = useState(null);
   const [showmore, setshowmore] = useState(false);
 
-  useEffect(() => {
-    axios.get(newsURL).then((response) => {
-      setnews(response.data.articles);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get(newsURL).then((response) => {
+  //     setnews(response.data.articles);
+  //   });
+  // }, []);
+
+  const { data: news } = useQuery(["news"], () => {
+    return axios.get(newsURL).then((response) => response.data.articles);
+  });
 
   return (
     <div>

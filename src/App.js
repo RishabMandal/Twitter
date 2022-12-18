@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import ExploreSection from "./components/ExploreSection";
 import MainFeed from "./components/MainFeed";
 import Sidebar from "./components/Sidebar";
-import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import { auth, provider } from "./firebase.js";
 import { signInWithPopup } from "firebase/auth";
-// import { data } from "autoprefixer";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
   const [signin, setsignin] = useState(false);
@@ -28,6 +28,10 @@ function App() {
     if (useremail) {
       setsignin(true);
     }
+  });
+
+  const client = new QueryClient({
+    defaultOptions: { queries: { refetchOnWindowFocus: false } },
   });
 
   return (
@@ -96,17 +100,19 @@ function App() {
       )}
 
       {signin && (
-        <Router>
-          <div className="h-full justify-center bg-black flex">
-            <Sidebar username={username} useremail={useremail} />
-            <MainFeed
-              username={username}
-              setusername={setusername}
-              useremail={useremail}
-            />
-            <ExploreSection username={username} useremail={useremail} />
-          </div>
-        </Router>
+        <QueryClientProvider client={client}>
+          <Router>
+            <div className="h-full justify-center bg-black flex">
+              <Sidebar username={username} useremail={useremail} />
+              <MainFeed
+                username={username}
+                setusername={setusername}
+                useremail={useremail}
+              />
+              <ExploreSection username={username} useremail={useremail} />
+            </div>
+          </Router>
+        </QueryClientProvider>
       )}
     </>
   );

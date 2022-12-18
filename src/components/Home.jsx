@@ -75,7 +75,12 @@ export default function Home({ username, useremail }) {
         <div className="mx-[0.05rem] h-full bg-black text-white">
           {/* Actual content after login  */}
           <div className="flex sticky top-0 bg-black z-10">
-            <div onClick={see} className="p-2 font-bold">
+            <div
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              }}
+              className="p-2 font-bold cursor-pointer"
+            >
               Home
             </div>
             <svg
@@ -85,7 +90,7 @@ export default function Home({ username, useremail }) {
               strokeWidth={1.5}
               stroke="currentColor"
               // onClick={Add}
-              className="w-6 h-6 my-auto ml-auto mr-2"
+              className="w-6 h-6 my-auto ml-auto mr-2 cursor-pointer rotate-180"
             >
               <path
                 strokeLinecap="round"

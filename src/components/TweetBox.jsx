@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 // import "emoji-mart/css/emoji-mart.css";
-import data from "@emoji-mart/data";
+// import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 
 export default function TweetBox({
@@ -190,7 +190,7 @@ export default function TweetBox({
             addTweet();
             LocalInput ? setalertstate(!alertstate) : setalertstate(alertstate);
           }}
-          className="ml-auto my-auto mr-1 text-sm rounded-full bg-blue-500 hover:bg-blue-600 cursor-pointer px-3 py-1 h-7 text-center font-semibold"
+          className="ml-auto my-auto mr-1 text-sm rounded-full transition ease-in bg-blue-500 hover:bg-blue-600 cursor-pointer px-3 py-1 h-7 text-center font-semibold"
         >
           Tweet
         </div>
